@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { FC } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-function App() {
+import Home from './components/Home'
+import Dropdown from './components/Dropdown'
+import RadioGroup from './components/RadioGroup'
+import Disclosure from './components/Disclosure'
+import Tab from './components/Tab'
+
+interface Props {}
+
+const App: FC<Props> = (): JSX.Element => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home />} />
+      </Routes>
+
+      <Routes>
+        <Route path='/dropdown' element={<Dropdown />} />
+      </Routes>
+
+      <Routes>
+        <Route path='/radioGroup' element={<RadioGroup />} />
+      </Routes>
+
+      <Routes>
+        <Route path='/disclosure' element={<Disclosure />} />
+      </Routes>
+
+      <Routes>
+        <Route path='/tab' element={<Tab />} />
+      </Routes>
+    </Router>
+  )
 }
 
-export default App;
+export default App
